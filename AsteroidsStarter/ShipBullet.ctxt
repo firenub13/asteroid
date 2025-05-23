@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=ShipBullet
+comment1.params=r
+comment1.target=ShipBullet(int)
+comment2.params=
+comment2.target=void\ act()
+numComments=3
