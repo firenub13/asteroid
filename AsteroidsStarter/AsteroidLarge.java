@@ -6,18 +6,15 @@ public class AsteroidLarge extends Actor
     GreenfootImage rock;
     
     int rotation = Greenfoot.getRandomNumber(5);
-    int ySpeed = Greenfoot.getRandomNumber(7)+1;
-    int ySpeedNegative = Greenfoot.getRandomNumber(2);
-    int xSpeed = Greenfoot.getRandomNumber(7)+1;
-    int xSpeedNegative = Greenfoot.getRandomNumber(2);
+    int ySpeed = Greenfoot.getRandomNumber(3)+1;
+    int ySpeedNegative;
+    int xSpeed = Greenfoot.getRandomNumber(3)+1;
+    int xSpeedNegative;
+    int repeats;
+    int set = 0;
     
     public AsteroidLarge(){
-        if (ySpeedNegative == 1){
-            ySpeed = ySpeed * -1;
-        }
-        if (xSpeedNegative == 1){
-            xSpeed = xSpeed * -1;
-        }
+        
         rock = new GreenfootImage(70, 70);
         setImage(rock);
         rock.setColor(Color.WHITE);
@@ -33,8 +30,51 @@ public class AsteroidLarge extends Actor
     //asteroids move in random directions
     public void act() 
     {
+        if (set != 1){
+            if (getY()<0){
+                ySpeedNegative = 0;
+            }else{
+                ySpeedNegative = 1;
+            }
+            if (getX()<0){
+                xSpeedNegative = 0;
+            }else{
+                xSpeedNegative = 1;
+            }
+            if (ySpeedNegative == 1){
+                ySpeed = ySpeed * -1;
+            }
+            if (xSpeedNegative == 1){
+                xSpeed = xSpeed * -1;
+            }
+            set = 1;
+        }
         setLocation(getX()+xSpeed, getY()+ySpeed);
         setRotation(getRotation()+rotation);
+        if(getY()>840){
+            setLocation(Greenfoot.getRandomNumber(1000), -40);
+        }else if (getY()<-40){
+            setLocation(Greenfoot.getRandomNumber(1000), 840);
+        }
+        if(getX()>1040){
+            setLocation(-40, Greenfoot.getRandomNumber(800));
+        }else if (getX()<-40){
+            setLocation(1040, Greenfoot.getRandomNumber(800));
+        }
+        if(isTouching(ShipBullet.class)){
+            removeTouching(ShipBullet.class);
+            repeats = Greenfoot.getRandomNumber(6)+1;
+            getWorld().addObject(new DebrisDot(), getX(), getY());
+            getWorld().addObject(new DebrisDot(), getX(), getY());
+            getWorld().addObject(new DebrisDot(), getX(), getY());
+            getWorld().addObject(new DebrisDot(), getX(), getY());
+            getWorld().addObject(new DebrisLine(), getX(), getY());
+            getWorld().addObject(new DebrisLine(), getX(), getY());
+            getWorld().addObject(new AsteroidMedium(ySpeedNegative, xSpeedNegative), getX(), getY());
+            getWorld().addObject(new AsteroidMedium(ySpeedNegative, xSpeedNegative), getX(), getY());
+            SpaceWorld.largeAsteroids--;
+            getWorld().removeObject(this);
+        }
     }
     
 }    

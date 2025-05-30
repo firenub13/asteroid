@@ -1,7 +1,7 @@
 #BlueJ class context
-comment0.target=AsteroidMedium
+comment0.target=AsteroidSmall
 comment1.params=ySpeedNegative\ xSpeedNegative
-comment1.target=AsteroidMedium(int,\ int)
+comment1.target=AsteroidSmall(int,\ int)
 comment2.params=
 comment2.target=void\ act()
 numComments=3

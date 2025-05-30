@@ -20,7 +20,7 @@ public class DebrisDot extends Actor
       move(5); //moves in a random direction
       
      delay++;
-      if(delay > 20){ //dot debris is removed after 20 repeats of acts
+      if(delay > 19){ //dot debris is removed after 20 repeats of acts
             getWorld().removeObject(this);    
       }
     }    

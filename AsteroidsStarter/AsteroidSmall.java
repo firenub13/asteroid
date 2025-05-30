@@ -1,31 +1,31 @@
 import greenfoot.*;
 
-public class AsteroidMedium extends Actor
+public class AsteroidSmall extends Actor
 {
    
     GreenfootImage rock;
     
     int rotation = Greenfoot.getRandomNumber(5);
-    int ySpeed = Greenfoot.getRandomNumber(3)+1;
+    int ySpeed = Greenfoot.getRandomNumber(2)+1;
     int ySpeedNegative;
-    int xSpeed = Greenfoot.getRandomNumber(3)+1;
+    int xSpeed = Greenfoot.getRandomNumber(2)+1;
     int xSpeedNegative;
     int repeats;
     
-    public AsteroidMedium(int ySpeedNegative, int xSpeedNegative){
+    public AsteroidSmall(int ySpeedNegative, int xSpeedNegative){
         if (ySpeedNegative == 1){
             ySpeed = ySpeed * -1;
         }
         if (xSpeedNegative == 1){
             xSpeed = xSpeed * -1;
         }
-        rock = new GreenfootImage(40, 40);
+        rock = new GreenfootImage(25, 25);
         setImage(rock);
         rock.setColor(Color.WHITE);
         //create a list of x points
-        int[] xPoints = {1, 8, 16, 26, 31, 37, 39, 29, 23, 15, 9, 2};
+        int[] xPoints = {1, 3, 7, 12, 15, 17, 24, 18, 13, 9, 5, 2};
         //create a list of y points
-        int[] yPoints = {2, 5, 9, 1, 3, 3, 32, 36, 39, 35, 31, 34};
+        int[] yPoints = {2, 4, 8, 3, 1, 3, 23, 21, 19, 20, 22, 18};
         //use drawPolygon to draw the costume of the asteroid
         rock.drawPolygon(xPoints, yPoints, 12);
         
@@ -55,12 +55,11 @@ public class AsteroidMedium extends Actor
             getWorld().addObject(new DebrisDot(), getX(), getY());
             getWorld().addObject(new DebrisLine(), getX(), getY());
             getWorld().addObject(new DebrisLine(), getX(), getY());
-            getWorld().addObject(new AsteroidSmall(ySpeedNegative, xSpeedNegative), getX(), getY());
-            getWorld().addObject(new AsteroidSmall(ySpeedNegative, xSpeedNegative), getX(), getY());
     
             getWorld().removeObject(this);
         }
     }
     
 }    
+
 

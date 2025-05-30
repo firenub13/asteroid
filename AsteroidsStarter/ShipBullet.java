@@ -16,6 +16,6 @@ public class ShipBullet extends Actor
 
     public void act() 
     {
-
+        move(10);
     }    
 }
