@@ -70,9 +70,11 @@ public class AsteroidLarge extends Actor
             getWorld().addObject(new DebrisDot(), getX(), getY());
             getWorld().addObject(new DebrisLine(), getX(), getY());
             getWorld().addObject(new DebrisLine(), getX(), getY());
+            SpaceWorld.Asteroids+=2;
             getWorld().addObject(new AsteroidMedium(ySpeedNegative, xSpeedNegative), getX(), getY());
             getWorld().addObject(new AsteroidMedium(ySpeedNegative, xSpeedNegative), getX(), getY());
-            SpaceWorld.largeAsteroids--;
+            SpaceWorld.Asteroids--;
+            SpaceWorld.LargeAsteroids--;
             getWorld().removeObject(this);
         }
     }
