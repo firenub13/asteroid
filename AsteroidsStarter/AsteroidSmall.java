@@ -56,6 +56,7 @@ public class AsteroidSmall extends Actor
             getWorld().addObject(new DebrisLine(), getX(), getY());
             getWorld().addObject(new DebrisLine(), getX(), getY());
             SpaceWorld.Asteroids--;
+            SpaceWorld.score += 25;
             getWorld().removeObject(this);
         }
     }

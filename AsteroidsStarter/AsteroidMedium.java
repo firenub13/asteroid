@@ -59,6 +59,7 @@ public class AsteroidMedium extends Actor
             getWorld().addObject(new AsteroidSmall(ySpeedNegative, xSpeedNegative), getX(), getY());
             getWorld().addObject(new AsteroidSmall(ySpeedNegative, xSpeedNegative), getX(), getY());
             SpaceWorld.Asteroids--;
+            SpaceWorld.score += 100;
             getWorld().removeObject(this);
         }
     }

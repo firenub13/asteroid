@@ -9,9 +9,11 @@ public class SpaceWorld extends World
     int side = 0;
     static int Asteroids = 0;
     static int LargeAsteroids = 0;
+    static int score = 0;
     public SpaceWorld()
     {    
         super(1000, 800, 1,false); 
+        addObject(new scoreboard(), 50, 50);
         addObject(new Ship(), 500, 400);
         
     }
